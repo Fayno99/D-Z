@@ -14,4 +14,4 @@ function fibanachi ($limit)
         $f = $sum;               //ця зміна чисел потрібна для вичеслення суми всіх чисел
     }
 }
-   fibanachi(100);
+   fibanachi(10);
