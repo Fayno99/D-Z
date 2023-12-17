@@ -1,5 +1,4 @@
 <?php
-
 function fibanachi ($limit)
 {
     $a=1;                        //початковві значення змінної а
@@ -14,4 +13,4 @@ function fibanachi ($limit)
         $f = $sum;               //ця зміна чисел потрібна для вичеслення суми всіх чисел
     }
 }
-   fibanachi(200);
+   fibanachi(100);
