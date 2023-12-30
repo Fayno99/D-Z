@@ -26,18 +26,18 @@
         <?php endif; ?>
 
         <?php
-        if (($_POST['email'] == 'Hapy@new.year') && ($_POST['pass'] == '2024')): ?>
+        if ((!empty($_POST['email']) && ($_POST['email'] == 'Hapy@new.year') && ($_POST['pass'] == '2024'))): ?>
             <div class="card" style="width: 25rem; margin: auto;">
                 <img src="https://wallpapers.com/images/high/olaf-the-lovable-snowman-from-disneys-frozen-greeting-you-with-a-smile-ys11kyjvdgypw70n.webp"
                      class="card-img-top" alt="...">
                 <div class="card-body" style="background-color: lightcyan; >
-                    <h3 class="card-title">З Новим Роком та Різдвом Христовим</h3>
+                    <h3>З Новим Роком та Різдвом Христовим</h3>
                 </div>
             </div>
         <?php endif; ?>
 
         <br> <br>
-        <form method="post">
+        <form method="post" >
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Емейл адреса</label>
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1"
