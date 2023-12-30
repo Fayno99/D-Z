@@ -35,7 +35,8 @@
                 </div>
             </div>
         <?php endif; ?>
-        <br> <br>
+                        <br> <br>
+
         <form method="post" >
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Емейл адреса</label>
