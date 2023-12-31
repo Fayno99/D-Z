@@ -37,7 +37,6 @@
             </div>
         <?php endif; ?>
         <br> <br>
-        <br> <br>
 
         <form method="post" >
             <div class="mb-3">
@@ -50,7 +49,6 @@
                 <label for="exampleInputPassword1" class="form-label">Пароль</label>
                 <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
             </div>
-
             <button type="submit" name="btn" class="btn btn-primary">Підтвердити</button>
         </form>
     </div>
