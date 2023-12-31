@@ -9,8 +9,8 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 </head>
-<body class="p-3 mb-2  bg-dark">
 
+<body class="p-3 mb-2  bg-dark">
 <div class="container " style="width: 40rem; margin: auto; ">
     <br><br>
     <div class="p-3 mb-2 position-center" style="background-color: slategray; border-radius: 20px;border-color: aqua;">
@@ -50,6 +50,7 @@
         </div>
 
         <button type="submit" name="btn" class="btn btn-primary">Підтвердити</button>
+
     </form>
 </div>
 </body>
