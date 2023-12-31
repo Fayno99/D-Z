@@ -9,7 +9,6 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 </head>
-
 <body class="p-3 mb-2  bg-dark">
 <div class="container " style="width: 40rem; margin: auto; ">
     <br><br>
@@ -35,7 +34,6 @@
         </div>
     </div>
     <?php endif; ?>
-
     <br> <br>
     <form method="post">
         <div class="mb-3">
@@ -48,9 +46,7 @@
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
             <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
         </div>
-
         <button type="submit" name="btn" class="btn btn-primary">Підтвердити</button>
-
     </form>
 </div>
 </body>
