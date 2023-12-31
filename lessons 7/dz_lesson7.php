@@ -30,7 +30,7 @@
             <img src="https://wallpapers.com/images/high/olaf-the-lovable-snowman-from-disneys-frozen-greeting-you-with-a-smile-ys11kyjvdgypw70n.webp"
                  class="card-img-top" alt="...">
             <div class="card-body" style="background-color: lightcyan; >
-                    <h3 class=" card-title"> З Новим Роком та Різдвом Христовим </h3>
+                    <h3 class="  <h3 class= "card-title"> З Новим Роком та Різдвом Христовим </h3>
         </div>
     </div>
     <?php endif; ?>
