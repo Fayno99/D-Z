@@ -74,13 +74,9 @@ session_start();
                           }
                       }?>
                 </span></h2>
-<<<<<<< HEAD
-    </div>
-=======
 
     </div>
 
->>>>>>> 43e2c35 (dz_lesson8)
     <?php  //session_destroy();
     } ?>
 </body>
