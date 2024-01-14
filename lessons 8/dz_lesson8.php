@@ -74,9 +74,7 @@ session_start();
                           }
                       }?>
                 </span></h2>
-
     </div>
-
     <?php  //session_destroy();
     } ?>
 </body>
