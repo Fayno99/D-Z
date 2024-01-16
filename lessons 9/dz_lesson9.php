@@ -39,6 +39,7 @@
     </div>
     <br><br>
     <?php
+
     if (!empty($_POST['email']))
     {
         $email = $_POST['email'];
@@ -56,6 +57,7 @@
             <form method="post">
                 <button type="submit"  class="btn btn-primary" name="delBtn">Видалити </button>
                 <input class="form-control" type="text" name="ryadok" placeholder="Видалити все або вкажіть поле для видалення" aria-label="Delete">
+
             </form>
             <h4>
                 <?php endif; ?>
@@ -81,6 +83,7 @@
                             fclose($fileToRead);
                             //  header("Refresh:0");
                         }
+
                         else if ((isset($_POST['delBtn']))  ){
                             $fp = fopen("dz_data.txt", 'a'); //Открываем файл в режиме записи
                             ftruncate($fp, 0); // очищаем файл
