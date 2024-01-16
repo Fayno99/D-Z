@@ -58,6 +58,7 @@ session_start();
      <?php
      endif;
      ?>
+
                 <?php
                       $displayed_emails = [];
                       if((isset($_SESSION['user'])) && (!empty($_POST['email'])) ){
