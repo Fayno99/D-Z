@@ -39,7 +39,6 @@
     </div>
     <br><br>
     <?php
-
     if (!empty($_POST['email']))
     {
         $email = $_POST['email'];
@@ -83,7 +82,6 @@
                             fclose($fileToRead);
                             //  header("Refresh:0");
                         }
-
                         else if ((isset($_POST['delBtn']))  ){
                             $fp = fopen("dz_data.txt", 'a'); //Открываем файл в режиме записи
                             ftruncate($fp, 0); // очищаем файл
