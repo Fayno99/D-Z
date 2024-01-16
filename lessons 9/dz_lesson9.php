@@ -57,7 +57,6 @@
             <form method="post">
                 <button type="submit"  class="btn btn-primary" name="delBtn">Видалити </button>
                 <input class="form-control" type="text" name="ryadok" placeholder="Видалити все або вкажіть поле для видалення" aria-label="Delete">
-
             </form>
             <h4>
                 <?php endif; ?>
