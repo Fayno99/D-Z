@@ -18,15 +18,21 @@ session_start();
     <div class="p-3 mb-2 position-center" style="background-color: slategray; border-radius: 20px;border-color: aqua;">
 
         <?php
-        if (!empty($_POST['email'])): ?>
-            <div class="alert alert-success" role="alert">
-                Ви вказали @mail
-                <?=
-                $_POST['email'];
-                ?>
-            </div>
-        <?php endif; ?>
-
+        if (!empty($_POST['email'])){
+        $_SESSION['is_registered'] = true;
+        $id = count($_SESSION['user'] ?? []);
+        $_SESSION['last_id']=$id;
+            $_SESSION['last_id']=$id;
+            $_SESSION['user'][$id] = [
+                'email'=>$_POST['email'],
+            ];
+        ?>
+        <?php
+ //session_destroy();
+        } ?>
+           <?php
+        if (!($_SESSION['is_registered'] ?? false)):
+        ?>
     <form method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Емейл адреса</label>
@@ -38,30 +44,21 @@ session_start();
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
             <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
         </div>
-
         <button type="submit" name="btn" class="btn btn-primary">Підтвердити</button>
-
     </form>
  <br>
-
     </div>
         <br><br>
-
     <?php
-    if (!empty($_POST['email']) ): ?>
+    else:
+    ?>
     <div class="p-4 mb-3 position-center" style="background-color: slategray; border-radius: 20px;border-color: aqua;">
         <h2>Користувачі які вже зареєструвались
             <span class="badge bg-secondary">
-    <?php endif; ?>
+     <?php
+     endif;
+     ?>
                 <?php
-                      if (!empty($_POST['email'])){
-                      $_SESSION['is_registered'] = true;
-                      $id = count($_SESSION['user'] ?? []);
-                      $_SESSION['last_id']=$id;
-                      $_SESSION['user'][$id] = [
-                          'email'=>$_POST['email'],
-                      ];
-                      //                var_dump($_SESSION);
                       $displayed_emails = [];
                       if((isset($_SESSION['user'])) && (!empty($_POST['email'])) ){
                           foreach($_SESSION['user'] as $user) {
@@ -72,10 +69,10 @@ session_start();
                                   $displayed_emails[] = $user['email'];
                               }
                           }
-                      }?>
+                      }
+     //session_destroy(); ?>
                 </span></h2>
     </div>
-    <?php  //session_destroy();
-    } ?>
+
 </body>
 </html>
