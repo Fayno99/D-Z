@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS dz_10;
+USE dz_10;
+
+CREATE TABLE IF NOT EXISTS DZ_10 (
+                                        ID INT AUTO_INCREMENT,
+                                        StudentName VARCHAR(100),
+                                        Faculty VARCHAR(100),
+                                        Subject VARCHAR(100),
+                                        Grade INT,
+                                        PRIMARY KEY (ID)
+);
+
+
+USE dz_10;
+
+INSERT INTO DZ_10 ( StudentName, Faculty, Subject, Grade)
+VALUES (  'John', 'фізико-молекулярний', 'Теорія тонких плівок', 8),
+       (  'Johnny', 'Науково технічний', 'Ремонт колайдера синьою ізострічкою', 12),
+       (  'Jonathon', 'Містичний', 'Політ на метлі в негоду', 3),
+       (  'Johnythan', 'ІТ', 'Кібербезпека містичного факультету', 20),
+       (  'Jonsey', 'Кулінарно-фізичний', 'Створення їжі в надвисокому вакуумі', 15);
