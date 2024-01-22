@@ -108,10 +108,7 @@ function deleteSesion($con, $online)
     } else 'mesagges not send';
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/request
 function getOnlineUsers($con):array
 {
     $data = [];
