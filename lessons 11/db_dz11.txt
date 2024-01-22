@@ -1,0 +1,34 @@
+CREATE DATABASE IF NOT EXISTS dz_11;
+USE dz_11;
+
+CREATE TABLE IF NOT EXISTS autorization (
+                                        ID INT AUTO_INCREMENT,
+                                        userName VARCHAR(100),
+                                        password VARCHAR(100),
+                                        PRIMARY KEY (ID)
+);
+
+
+USE dz_11;
+
+INSERT INTO autorization ( userName, password)
+VALUES (  'John', 'John'),
+       (  'Admin', 'admin');
+
+USE dz_11;
+
+CREATE TABLE IF NOT EXISTS Chat (
+                                            ID INT AUTO_INCREMENT,
+                                            chat VARCHAR(100),
+                                            login VARCHAR(100),
+                                            PRIMARY KEY (ID)
+);
+INSERT INTO Chat ( chat, login)
+VALUES (  'Helo i am John ', 'John'),
+       (  'helo i am Admin', 'admin');
+
+USE dz_11;
+
+SELECT autorization.*, Chat.*
+FROM autorization
+         INNER JOIN Chat ON autorization.userName = Chat.login
