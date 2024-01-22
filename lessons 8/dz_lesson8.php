@@ -58,6 +58,10 @@ session_start();
      <?php
      endif;
      ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/request
                 <?php
                       $displayed_emails = [];
                       if((isset($_SESSION['user'])) && (!empty($_POST['email'])) ){
