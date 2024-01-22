@@ -82,6 +82,5 @@ $messages = getAllMessages($con);
                         <?php endforeach;?>
                </span></h2>
     </div>
-
 </body>
 </html>

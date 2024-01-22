@@ -75,7 +75,7 @@ mysqli_close($con);
                                 <?php endforeach;?>
             </ul>
         </div>
-            </span></h2>
+     </span></h2>
     </div>
 </body>
 </html>
