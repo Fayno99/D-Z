@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 session_start();
 if (!isset($_SESSION['Admin'])) {
@@ -42,49 +41,45 @@ $messages = getAllMessages($con);
             <div class="card-header" > Chat</div>
             <ul class="list-group list-group-flush">
                 <?php foreach ($messages as $message):?>
-                <li class="list-group-item">
+                    <li class="list-group-item">
                     <strong><?=$message['chat'] ?> </strong>
                     at <?=$message['timestamp'] ?>
                     by <?= $message['login'] ?>
                     <?php  if ($_SESSION['Admin']=="Admin"): ?>
-                <a href="?delete_message=<?=$message['ID']?>">X</a></li>
+                        <a href="?delete_message=<?=$message['ID']?>">X</a></li>
                     <?php endif; ?>
                 <?php endforeach;?>
             </ul>
         </div>
-    <form method="post">
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Текст повідомлення</label>
-            <input type="text" class="form-control" name="mes" id="exampleInputPassword1">
-        </div>
-        <button type="submit" name="btn" class="btn btn-primary">Відправити</button>
-        <button type="submit" name="btnOut" class="btn btn-primary">Вийти</button>
-        <?php
-        if ((isset($_POST['btnOut'])) ) {
-            $deleteSesion = deleteSesion ($con, $_SESSION['Admin']);
-            session_unset();
-            session_destroy();
-            header("Location: ./Login.php");
-            exit( );
-        }
-        mysqli_close($con);
-        ?>
-    </form>
- <br>
+        <form method="post">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Текст повідомлення</label>
+                <input type="text" class="form-control" name="mes" id="exampleInputPassword1">
+            </div>
+            <button type="submit" name="btn" class="btn btn-primary">Відправити</button>
+            <button type="submit" name="btnOut" class="btn btn-primary">Вийти</button>
+            <?php
+            if ((isset($_POST['btnOut'])) ) {
+                $deleteSesion = deleteSesion ($con, $_SESSION['Admin']);
+                session_unset();
+                session_destroy();
+                header("Location: ./Login.php");
+                exit( );
+            }
+            mysqli_close($con);
+            ?>
+        </form>
+        <br>
     </div>
-        <br><br>
+    <br><br>
     <div class="p-4 mb-3 position-center" style="background-color: slategray; border-radius: 20px;border-color: aqua;">
         <h2>Користувачі Online
             <span class="badge bg-secondary">
    <?php
-        foreach ($getOnlineUsers as $getOnlineUser):?>
+   foreach ($getOnlineUsers as $getOnlineUser):?>
                 <li class="list-group-item"> <?=$getOnlineUser['userOn'] ?>
-                        <?php endforeach;?>
+                    <?php endforeach;?>
                </span></h2>
     </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/request
 </body>
 </html>

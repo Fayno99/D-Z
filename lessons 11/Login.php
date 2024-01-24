@@ -26,6 +26,7 @@ $getSetPassword = getIsSetPass($con, $_POST['user'],$_POST['password']);
 mysqli_close($con);
 ?>
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,13 +74,9 @@ mysqli_close($con);
                 <?php foreach ($users as $user):?>
                     <li class="list-group-item"> <?=$user['userName'] ?>
                                 <?php endforeach;?>
-            </ul>
+                </ul>
+             </span></h2>
         </div>
-
-     </span></h2>
-
-            </span></h2>
-
-    </div>
+        </div>
 </body>
 </html>
