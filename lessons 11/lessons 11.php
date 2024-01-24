@@ -82,9 +82,5 @@ $messages = getAllMessages($con);
                         <?php endforeach;?>
                </span></h2>
     </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/request
 </body>
 </html>
