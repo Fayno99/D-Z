@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS dz_13;
 USE dz_13;
-
 CREATE TABLE IF NOT EXISTS autorization (
                                             ID INT AUTO_INCREMENT,
                                             userName VARCHAR(100),
@@ -10,15 +9,12 @@ CREATE TABLE IF NOT EXISTS autorization (
                                             PRIMARY KEY (ID)
 );
 
-
 USE dz_13;
-
 INSERT INTO autorization ( userName, password)
 VALUES (  'John', 'John'),
        (  'Admin', 'admin');
 
 USE dz_13;
-
 CREATE TABLE IF NOT EXISTS Chat (
                                     ID INT AUTO_INCREMENT,
                                     chat VARCHAR(100),
@@ -32,7 +28,6 @@ VALUES (  'Helo i am John ', 'John'),
        (  'helo i am Admin', 'admin');
 
 USE dz_13;
-
 CREATE TABLE IF NOT EXISTS Online (
                                      ID INT AUTO_INCREMENT,
                                      userOn VARCHAR(100),
@@ -40,7 +35,3 @@ CREATE TABLE IF NOT EXISTS Online (
                                      CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                      PRIMARY KEY (ID)
 );
-USE dz_13;
-SELECT autorization.*, Chat.*
-FROM autorization
-         INNER JOIN Chat ON autorization.userName = Chat.login
