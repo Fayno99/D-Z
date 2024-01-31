@@ -31,15 +31,33 @@ $pdo= null;
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
             crossorigin="anonymous"></script>
 <script>
+    function BluurWord() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("text");
+          // If the checkbox is checked, display the output text
+        let forbiddenWord;
+        if (checkBox.checked == true){
+            text.style.display = "block";
+             forbiddenWord = "забарон";
+        } else {
+            text.style.display = "none";
+             forbiddenWord = "забарона";
 
-function appendComment(login, timestamp, chat, ID) {
+        }
+        console.log(forbiddenWord)
+        return forbiddenWord
+
+    }
+    function appendComment(login, timestamp, chat, ID, BluurWord) {
     let isAdmin = "<?php echo $_SESSION['Admin']; ?>";
     let del = isAdmin === 'Admin' ? "<a href='#' data-id='" + ID + "' class='delete-button' id='hide-x'>X</a> " :"";
-    let forbiddenWord = "заборона";
-    if (chat.includes(forbiddenWord)) {
-        chat = chat.replace(new RegExp(forbiddenWord, 'g'), '********');
+    let forbid = BluurWord;
+    if (chat.includes(forbid)) {
+        chat = chat.replace(new RegExp(forbid, 'g'), '********');
     }
-
+        console.log('2',BluurWord)
     $("#list-of-messages").append(
         "<li class='list-group-item'><strong>"+ login + "</strong>"+" "+ timestamp + ": " + chat + " "+ del +" </li>"
     );
@@ -110,7 +128,6 @@ $(document).ready(function(){
             }
         })
     });
-
 });
 </script>
 
@@ -135,6 +152,8 @@ $(document).ready(function(){
     </div>
         <br><br>
     <div class="p-4 mb-3 position-center" style="background-color: slategray; border-radius: 20px;border-color: aqua;">
+        <input type="checkbox" id="myCheck" onclick="BluurWord()">
+        <p id="text" style="display:none">Checkbox is CHECKED!</p>
           <h2>Користувачі Online
             <span class="badge bg-secondary">
    <?php
