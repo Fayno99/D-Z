@@ -10,4 +10,4 @@ $pdo = getPDO();
     header("Location: ./Login.php");
     exit( );
 
-$con= null;
+$pdo= null;

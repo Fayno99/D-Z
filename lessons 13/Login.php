@@ -79,11 +79,7 @@ $con=null;
                                 <?php endforeach;?>
             </ul>
         </div>
-
      </span></h2>
-
-            </span></h2>
-
-    </div>
+        </div>
 </body>
 </html>
