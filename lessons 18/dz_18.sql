@@ -28,7 +28,7 @@ CREATE TABLE `Chat` (
   `login` varchar(100) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `Chat` (
 
 LOCK TABLES `Chat` WRITE;
 /*!40000 ALTER TABLE `Chat` DISABLE KEYS */;
-INSERT INTO `Chat` VALUES (1,'Helo i am John ','John','2024-01-28 19:50:58'),(2,'helo i am Admin','Admin','2024-01-28 21:14:48'),(13,'Слово яке заборонено це заборона','Admin','2024-01-28 21:19:31'),(14,'можна булоб сказати що це слово заборона але його не видно','Admin','2024-01-28 21:32:42'),(16,'Тільки адмін може видаляти слова іншим заборона','Admin','2024-01-28 21:19:00');
+INSERT INTO `Chat` VALUES (1,'Helo i am John ','John','2024-01-28 19:50:58'),(2,'helo i am Admin','Admin','2024-01-28 21:14:48'),(13,'Слово яке заборонено це заборона','Admin','2024-01-28 21:19:31'),(14,'можна булоб сказати що це слово заборона але його не видно','Admin','2024-01-28 21:32:42'),(16,'Тільки адмін може видаляти слова іншим заборона','Admin','2024-01-28 21:19:00'),(64,'Helo i am admin','Admin','2024-02-18 15:31:55');
 /*!40000 ALTER TABLE `Chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +53,7 @@ CREATE TABLE `Online` (
   `userOn` varchar(100) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,6 @@ CREATE TABLE `Online` (
 
 LOCK TABLES `Online` WRITE;
 /*!40000 ALTER TABLE `Online` DISABLE KEYS */;
-INSERT INTO `Online` VALUES (8,'Somik','2024-01-28 21:28:46');
 /*!40000 ALTER TABLE `Online` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +78,7 @@ CREATE TABLE `autorization` (
   `password` varchar(100) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +87,7 @@ CREATE TABLE `autorization` (
 
 LOCK TABLES `autorization` WRITE;
 /*!40000 ALTER TABLE `autorization` DISABLE KEYS */;
-INSERT INTO `autorization` VALUES (1,'John','John','2024-01-28 19:50:58'),(2,'Admin','admin','2024-01-28 19:50:58'),(3,'Somik','1234','2024-01-28 21:25:21');
+INSERT INTO `autorization` VALUES (18,'Admin','$2y$10$4JJt76VBiUXwlqxnBkwLVuaYALePTLLT/vyrZuAXMb0HywXcRHXLO','2024-02-18 15:07:46'),(19,'Somik','$2y$10$0364iPk0QiOAUXD1d.nJxuWcw6MxUca1rRTARu8pC4JREdJDzmhd.','2024-02-18 15:25:38');
 /*!40000 ALTER TABLE `autorization` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -101,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-28 22:40:26
+-- Dump completed on 2024-02-19 13:09:33
