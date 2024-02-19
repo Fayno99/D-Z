@@ -2,10 +2,8 @@
 <?php
 session_start();
 if (isset($_SESSION['Admin'])) {
-   header("location: lessons 13.php");
+   header("location: lessons 18.php");
 }
-?>
-<?php
 require_once ('db.php');
 $con = getPDO();
 //showAndDie($messages);
@@ -13,16 +11,31 @@ $con = getPDO();
 if (!empty($_POST['user'])){
     $getSetLogin = getIsSet($con, $_POST['user']);
 }
+class login {
+ public $user;
+ public $password;
 
-if (!empty($_POST['user']) && !empty($_POST['password']) && !$getSetLogin ){
-    addNewUser($con, $_POST['user'],$_POST['password']);
+ function __construct ($u, $p) {
+     $this->user= $u;
+     $this->password = $p;
+ }
+}
+
+$hashed_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$loginIn= new login($_POST['user'],$hashed_pass);
+
+if (!empty($_POST['user']) && !empty($hashed_pass) && !$getSetLogin ){
+    addNewUser($con, $loginIn);
 }
 
 $messages = getAllMessages($con);
 $users = getAllUser($con);
 if (!empty($_POST['user'])) {
-    $getSetPassword = getIsSetPass($con, $_POST['user'], $_POST['password']);
-}
+    $getSetPassword = getIsSetPass($con, $loginIn);
+   }
+$hashed_password_from_db = getPassword($con, $_POST['user']);
+
+
 $con=null;
 ?>
 
@@ -58,10 +71,10 @@ $con=null;
             <button type="submit" name="btn" class="btn btn-primary">Увійти в чат</button>
 
             <?php
-           if  ( (isset($_POST['btn'])) && (!empty($_POST['user'])) && (!empty($_POST['password'])) && $getSetPassword ){
+           if  ( (isset($_POST['btn'])) && (!empty($_POST['user'])) && (!empty($hashed_pass)) && (password_verify ($_POST['password'], $hashed_password_from_db)))   {
                 $_SESSION['Admin']=$_POST['user'];
                 $_SESSION['is_registered'] = true;
-                  header("Location: ./lessons 13.php");
+                  header("Location: ./lessons 18.php");
                 exit( );
             }
             ?>
