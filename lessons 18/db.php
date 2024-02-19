@@ -4,7 +4,7 @@ function  getPDO(): PDO
     $host = 'localhost';
     $username = 'root';
     $password = 'vf270691VF';
-    $dbName = 'dz_13';
+    $dbName = 'dz_18';
     $pdo = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE,  PDO::ERRMODE_EXCEPTION);
     return $pdo;
@@ -33,12 +33,16 @@ function getAllMessages(PDO $pdo): array
 }
 
 //insert
-function addNewMessage(PDO $pdo,string $mes,string  $Admin)
+function addNewMessage(PDO $pdo, newMessages $messageIn)
 {
-$sql = "INSERT INTO Chat (chat, login) VALUES (:mes,:Admin)";
+$sql = "INSERT INTO Chat (chat, login) VALUES (:mes, :Admin)";
 $queryRunner = $pdo->prepare($sql);
 
-if (!$queryRunner->execute (['mes'=> $mes, 'Admin'=> $Admin])){
+    $parameters = [
+        'mes' => $messageIn->mesage,
+        'Admin' => $messageIn->user,
+    ];
+if (!$queryRunner->execute ($parameters)){
    echo 'New record ok';
     } else echo 'mesagges not send';
 }
@@ -52,15 +56,23 @@ if (!$queryRunner->execute(['ID'=> $ID])) {
 } else echo 'mesagges send';
 
 }
+
 //for login
-function addNewUser(PDO $pdo, string $user, string $password)
+function addNewUser(PDO $pdo, login $loginIn)
 {
     $sql = "INSERT INTO autorization (userName, password) VALUES (:user, :password)";
     $queryRunner = $pdo->prepare($sql);
 
-    if (!$queryRunner->execute (['user'=> $user, 'password'=> $password])){
-        //  echo 'New record ok';
-    } else  echo 'mesagges not send';
+    $parameters = [
+        'user' => $loginIn->user,
+        'password' => $loginIn->password,
+    ];
+
+    if (!$queryRunner->execute($parameters)){
+        echo 'mesagges not send';
+    } else {
+        echo 'New record ok';
+    }
 }
 
 function getAllUser(PDO $pdo):array
@@ -77,7 +89,7 @@ function getAllUser(PDO $pdo):array
     return $data;
 }
 
-function getIsSet(PDO $pdo, $user){
+function getIsSet(PDO $pdo, string $user){
     $sql = "SELECT * FROM autorization WHERE userName=:user";
     $queryRunner = $pdo->prepare($sql);
     $queryRunner->bindValue(':user', $user);
@@ -85,14 +97,23 @@ function getIsSet(PDO $pdo, $user){
     return $queryRunner->rowCount() > 0;
 }
 
-function getIsSetPass(PDO $pdo,$user,$pass){
+function getIsSetPass(PDO $pdo, login $loginIn){
     $sql = "SELECT * FROM autorization WHERE userName=(:user) AND password=(:pass)";
     $queryRunner = $pdo->prepare($sql);
-    $queryRunner->bindValue(':user', $user);
-    $queryRunner->bindValue(':pass', $pass);
+    $queryRunner->bindValue(':user',$loginIn->user);
+    $queryRunner->bindValue(':pass' ,$loginIn->password);
     $queryRunner->execute();
     return  $queryRunner->rowCount() > 0;
 }
+
+function getPassword(PDO $pdo, $username) {
+    $sql = "SELECT password FROM autorization WHERE userName = :username";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['username' => $username]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row['password'];
+}
+
 
 ///// for online user
 
