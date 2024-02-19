@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('db.php');
-require_once('lessons 13.php');
+require_once('lessons 18.php');
 $pdo = getPDO();
 
     $deleteSesion = deleteSesion ($pdo, $_SESSION['Admin']);

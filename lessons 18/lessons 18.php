@@ -13,6 +13,8 @@ $getSetLoginOnline = getIsSetLognOnline($pdo, $_SESSION['Admin'] );
 if (!empty($_SESSION['Admin'])&& !$getSetLoginOnline ){
     addOnlineUser($pdo, $_SESSION['Admin']);
 }
+
+
 $getOnlineUsers= getOnlineUsers($pdo);
 $pdo= null;
 ?>
