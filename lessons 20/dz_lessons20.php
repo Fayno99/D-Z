@@ -154,7 +154,6 @@ class Battle
 
 }
 
-
 $Weapon = new Weapon;
 $Bow = new Bow;
 $Crossbow= new Crossbow;
