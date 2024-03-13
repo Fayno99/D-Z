@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/hello', function () {
-    return ('welcome and hello');
+    return ('welcome and hello)');
 });
